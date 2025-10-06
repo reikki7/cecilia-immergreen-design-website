@@ -1,0 +1,107 @@
+@import "tailwindcss";
+
+:root {
+  --color-primary: #00ff90;
+  --color-secondary: #ff9000;
+  --color-tertiary: #1d0034;
+  --color-background: #f6f8fe;
+}
+
+@layer utilities {
+  .bg-primary {
+    background-color: var(--color-primary);
+  }
+  .bg-secondary {
+    background-color: var(--color-secondary);
+  }
+  .bg-tertiary {
+    background-color: var(--color-tertiary);
+  }
+  .bg-background {
+    background-color: var(--color-background);
+  }
+  .font-sf-pro-display {
+    font-family: "sf-pro-display", system-ui, sans-serif;
+  }
+}
+
+.gpu-accelerated {
+  transform: translateZ(0);
+  will-change: transform;
+}
+
+/* Modal animations */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes zoom-in-95 {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-in {
+  animation-fill-mode: both;
+}
+
+.fade-in {
+  animation-name: fade-in;
+}
+
+.zoom-in-95 {
+  animation-name: zoom-in-95;
+}
+
+.duration-200 {
+  animation-duration: 200ms;
+}
+
+@font-face {
+  font-family: "sf-pro-display";
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+  src: url(./assets/fonts/SFPRODISPLAYREGULAR.OTF) format("opentype");
+}
+
+body {
+  margin: 0;
+  padding: 1rem;
+  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+  min-height: 100vh;
+}
+
+@media (max-width: 640px) {
+  body {
+    padding: 1rem;
+    background: white;
+  }
+}
+
+#root {
+  min-height: calc(100vh - 2rem);
+  border-radius: 3.5rem;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15),
+    0 0 0 1px rgba(255, 255, 255, 0.8);
+  background: white;
+  overflow: hidden;
+}
+
+@media (max-width: 640px) {
+  #root {
+    min-height: 100vh;
+    border-radius: 0;
+    box-shadow: none;
+  }
+}
