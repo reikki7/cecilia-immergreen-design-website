@@ -4,7 +4,7 @@ import Navbar from "./components/Navbar";
 
 function App() {
   return (
-    <div className="min-h-full p-2 sm:p-8 font-sf-pro-display">
+    <div className="min-h-full p-1 sm:p-8 font-sf-pro-display">
       <Navbar />
       <div className="max-w-[1600px] mx-auto">
         <MainContents />

@@ -66,7 +66,7 @@ const MainContents = memo(() => {
 
   return (
     <div
-      className={`pt-5 transition-all duration-1000 ${
+      className={`pt-0 sm:pt-5 transition-all duration-1000 ${
         isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
       }`}
     >

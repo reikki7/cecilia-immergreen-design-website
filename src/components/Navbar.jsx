@@ -11,23 +11,56 @@ const Navbar = memo(() => {
 
   return (
     <>
-      <div
-        className="flex items-center gap-2 flex-nowrap overflow-x-auto no-scrollbar relative px-1"
-        aria-label="Primary navigation"
-      >
-        <button
-          className="bg-primary p-3 lg:p-4 rounded-full text-black hover:opacity-80 transition-opacity shrink-0"
-          onClick={() => setShowSearch(!showSearch)}
+      <div className="relative">
+        <div
+          className="flex items-center gap-2 flex-nowrap overflow-x-auto no-scrollbar px-1"
+          aria-label="Primary navigation"
         >
-          <CiSearch size={20} className="lg:w-6 lg:h-6" />
-        </button>
+          <button
+            className="bg-primary p-3 lg:p-4 rounded-full text-black hover:opacity-80 transition-opacity shrink-0"
+            onClick={() => setShowSearch(!showSearch)}
+          >
+            <CiSearch size={20} className="lg:w-6 lg:h-6" />
+          </button>
 
-        {/* Desktop search */}
-        <input
-          type="text"
-          className="outline-none p-2 rounded-lg mx-2 lg:mx-4 w-full min-w-0 flex-1 text-sm lg:text-base hidden sm:block"
-          placeholder="Task name, status..."
-        />
+          {/* Desktop search */}
+          <input
+            type="text"
+            className="outline-none p-2 rounded-lg mx-2 lg:mx-4 w-full min-w-0 flex-1 text-sm lg:text-base hidden sm:block"
+            placeholder="Task name, status..."
+          />
+
+          <div className="flex items-center gap-2 lg:gap-6 ml-auto shrink-0">
+            <div className="bg-background p-3 lg:p-5 rounded-full text-black hover:opacity-80 transition-opacity cursor-pointer shrink-0">
+              <CiBellOn size={18} className="lg:w-5 lg:h-5" />
+            </div>
+
+            <div className="flex items-center py-1 gap-3 lg:gap-7 justify-between bg-background rounded-full shrink-0">
+              <span className="pl-3 lg:pl-4 whitespace-nowrap text-sm lg:text-base hidden min-[390px]:inline">
+                Hi, KidKat
+              </span>
+              <img
+                src={profilePic}
+                alt="profile picture"
+                className="w-10 h-10 lg:w-12 lg:h-12 rounded-full object-cover shrink-0"
+              />
+            </div>
+
+            <button
+              onClick={() => setShowCredits(true)}
+              className="flex items-center py-3 lg:py-4 px-3 lg:px-5 justify-between bg-black rounded-full text-white hover:opacity-80 duration-200 transition-opacity cursor-pointer shrink-0 min-w-fit"
+            >
+              <img
+                src={upgradeIcon}
+                alt="Upgrade Icon"
+                className="w-4 h-4 lg:w-5 lg:h-5 filter invert brightness-0 saturate-0"
+              />
+              <span className="text-sm lg:text-base ml-2 hidden min-[420px]:inline">
+                Credits
+              </span>
+            </button>
+          </div>
+        </div>
 
         {/* Mobile search overlay */}
         {showSearch && (
@@ -40,37 +73,6 @@ const Navbar = memo(() => {
             />
           </div>
         )}
-
-        <div className="flex items-center gap-2 lg:gap-6 ml-auto shrink-0">
-          <div className="bg-background p-3 lg:p-5 rounded-full text-black hover:opacity-80 transition-opacity cursor-pointer shrink-0">
-            <CiBellOn size={18} className="lg:w-5 lg:h-5" />
-          </div>
-
-          <div className="flex items-center py-1 gap-3 lg:gap-7 justify-between bg-background rounded-full shrink-0">
-            <span className="pl-3 lg:pl-4 whitespace-nowrap text-sm lg:text-base hidden min-[390px]:inline">
-              Hi, KidKat
-            </span>
-            <img
-              src={profilePic}
-              alt="profile picture"
-              className="w-10 h-10 lg:w-12 lg:h-12 rounded-full object-cover shrink-0"
-            />
-          </div>
-
-          <button
-            onClick={() => setShowCredits(true)}
-            className="flex items-center py-3 lg:py-4 px-3 lg:px-5 justify-between bg-black rounded-full text-white hover:opacity-80 duration-200 transition-opacity cursor-pointer shrink-0 min-w-fit"
-          >
-            <img
-              src={upgradeIcon}
-              alt="Upgrade Icon"
-              className="w-4 h-4 lg:w-5 lg:h-5 filter invert brightness-0 saturate-0"
-            />
-            <span className="text-sm lg:text-base ml-2 hidden min-[420px]:inline">
-              Credits
-            </span>
-          </button>
-        </div>
       </div>
 
       <CreditsModal
